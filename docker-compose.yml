@@ -16,5 +16,4 @@ services:
      - ./wordpress/code:/code   
    depends_on:
      - redis
-   tty: true
 
