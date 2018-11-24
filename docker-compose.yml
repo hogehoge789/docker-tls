@@ -1,19 +1,22 @@
 ---
-version: '2'
+version: '3'
 services:
   web:
    build: web
    ports:
-     - "443:443"
+     - "80:80"
    depends_on:
      - wordpress
    volumes:
      - ./dev/code/app:/var/www/html/app/
 
+  lb:
+   build: lb
+   ports:
+     - "443:443"
+
   wordpress:
    build: wordpress
    volumes:
      - ./wordpress/code:/code   
-   depends_on:
-     - redis
 
